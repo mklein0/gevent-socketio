@@ -1,4 +1,12 @@
-__version__ = (0, 3, 5)
+VERSION = (0, 3, 6, '+sm1')
+
+def get_version():
+    if isinstance(VERSION[-1], basestring):
+        return '.'.join(map(str, VERSION[:-1])) + VERSION[-1]
+    return '.'.join(map(str, VERSION))
+
+__version__ = get_version()
+del get_version
 
 import logging
 import gevent
